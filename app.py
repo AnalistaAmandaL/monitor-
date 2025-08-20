@@ -384,7 +384,7 @@ def main_app():
 
                 live_data = {'live_curtidas': 0, 'live_visualizacoes': 0}
                 if check_monthly_live_scrape(f"@{influencer}", st.session_state.usuario):
-                    live_data = get_live_data_from_scraping(influencer)
+                    live_data = get_tiktok_data_from_scraping(influencer)
                 else:
                     st.info(f"A verificação de lives para @{influencer} já foi realizada este mês. Pulando esta etapa.")
 
