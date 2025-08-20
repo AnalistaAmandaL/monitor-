@@ -8,7 +8,8 @@ import os
 import requests
 import json
 import time
-from playwright.sync_api import sync_playwright, Error as PlaywrightError
+from playwright.sync_api import Playwright, sync_playwright, Error as PlaywrightError
+
 
 # ==============================================
 # CONFIGURAÇÃO INICIAL DO APP
