@@ -390,14 +390,14 @@ def main_app():
 
                 if dados:
                     salvo_seguidores = adicionar_registro(st.session_state.usuario, f"@{influencer}", 'seguidores',
-                                                          dados['seguidores'], 'Scraping',
-                                                          live_data.get('live_curtidas'), live_data.get('live_visualizacoes'))
+                                          dados['seguidores'], 'Scraping',
+                                          live_data.get('live_curtidas'), live_data.get('live_visualizacoes'))
                     salvo_curtidas = adicionar_registro(st.session_state.usuario, f"@{influencer}", 'curtidas',
-                                                        dados['curtidas'], 'Scraping')
+                                          dados['curtidas'], 'Scraping')
                     salvo_visualizacoes = adicionar_registro(st.session_state.usuario, f"@{influencer}",
-                                                             'visualizacoes', dados['visualizacoes'], 'Scraping')
+                                          'visualizacoes', dados['visualizacoes'], 'Scraping')
                     salvo_ganhos = adicionar_registro(st.session_state.usuario, f"@{influencer}", 'ganhos',
-                                                      estimate_earnings(dados['visualizacoes']), 'Estimativa')
+                                          estimate_earnings(dados['visualizacoes']), 'Estimativa')
 
                     if salvo_seguidores and salvo_curtidas and salvo_visualizacoes and salvo_ganhos:
                         st.success(f"Dados de @{influencer} salvos com sucesso!")
@@ -405,9 +405,9 @@ def main_app():
                         st.write(f"**Curtidas:** {dados['curtidas']:,}")
                         st.write(f"**Visualizações:** {dados['visualizacoes']:,}")
                         st.write(f"**Ganhos Estimados (R$):** R$ {estimate_earnings(dados['visualizacoes']):,.2f}")
-                        if live_data['live_visualizacoes'] > 0:
-                            st.write(f"**Live Curtidas:** {live_data['live_curtidas']:,}")
-                            st.write(f"**Live Visualizações:** {live_data['live_visualizacoes']:,}")
+                        if live_data.get('live_visualizacoes', 0) > 0:
+                            st.write(f"**Live Curtidas:** {live_data.get('live_curtidas', 'N/A')}")
+                            st.write(f"**Live Visualizações:** {live_data.get('live_visualizacoes', 'N/A')}")
                     else:
                         st.error("Erro ao salvar os dados no banco.")
                 else:
