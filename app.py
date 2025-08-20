@@ -1,3 +1,4 @@
+from playwright.sync_api import Playwright, sync_playwright, Error as PlaywrightError
 import streamlit as st
 import pandas as pd
 import sqlite3
@@ -8,7 +9,11 @@ import os
 import requests
 import json
 import time
-from playwright.sync_api import Playwright, sync_playwright, Error as PlaywrightError
+
+
+
+# ...
+# Seu código continua abaixo
 
 
 # ==============================================
