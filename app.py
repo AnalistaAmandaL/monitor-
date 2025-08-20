@@ -391,7 +391,7 @@ def main_app():
                 if dados:
                     salvo_seguidores = adicionar_registro(st.session_state.usuario, f"@{influencer}", 'seguidores',
                                                           dados['seguidores'], 'Scraping',
-                                                          live_data['live_curtidas'], live_data['live_visualizacoes'])
+                                                          curtidas = live_data.get['live_curtidas'], visualizacoes = live_data.get['live_visualizacoes'])
                     salvo_curtidas = adicionar_registro(st.session_state.usuario, f"@{influencer}", 'curtidas',
                                                         dados['curtidas'], 'Scraping')
                     salvo_visualizacoes = adicionar_registro(st.session_state.usuario, f"@{influencer}",
